@@ -1,11 +1,11 @@
 from pypresence import Presence
 import pygetwindow as gw
 import win32com.client
-from tkinter import font
-from tkinter import *
 import time
-import sys
 import os
+
+osu_close = False
+gameOpend = False
 
 path = 'C:\Windows\System32\drivers\etc'
 os.chdir(path)
@@ -66,14 +66,32 @@ def setActive():
         RPC.update(details = state, state = "Getting good", large_image="aqn", large_text="TheAquila Cilent", small_image = server, small_text = f"Playing on {server} server")
 
 def check_exsit(process_name):
+    global osu_close
+    global gameOpend
     WMI = win32com.client.GetObject('winmgmts:')
     processCodeCov = WMI.ExecQuery('select * from Win32_Process where Name="%s"' % process_name)
     if len(processCodeCov) > 0:
+        osu_run = True
         setActive()
+        if osu_run == True and osu_close == True and gameOpend != True:
+            print("osu!.exe has been detected")
+            osu_close = False
+            gameOpend = True
     else:
+        osu_run = False
         RPC.clear()
+        if osu_run != True and osu_close != True and gameOpend == True:
+            print("osu!.exe closed")
+            osu_close = True
+            gameOpend = False
+        elif osu_run != True and osu_close != True and gameOpend != True:
+            print("osu!.exe cannot be detect")
+            osu_close = True
+            gameOpend = False
 
-print("Version: 1.0.0-prerelease\n")
+    return osu_run
+
+print("Version: 1.0.0-prerelease\nhttps://github.com/Kotoki1337/AquilaRP")
 
 while True:
     check_exsit("osu!.exe")
