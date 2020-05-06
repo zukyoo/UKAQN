@@ -47,3 +47,9 @@ Prerequisites:
 **Linux**
 
 I don't use Linux. If you are all using Linux, building python should not be difficult for you
+
+# WIP
+- [ ] Support AQN replay editor.
+- [ ] Identify in-game beatmap edit.
+- [ ] Custom text.
+- [ ] Python GUI(?)
