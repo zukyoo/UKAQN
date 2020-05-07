@@ -20,7 +20,7 @@ Some people want to show their Rich-Presence but dont want to get a report for i
 
 ## What will it display
 
-AquilaRP will not display any ign, only show the server you are currently on. And the beatmap you are currently playing, and which player is spectating by you.
+AquilaRP will not display any ign, only show the server you are currently on. And the beatmap you are currently playing or editing, and which player is spectating by you.
 
 # How to use
 
@@ -52,4 +52,5 @@ I don't use Linux. If you are all using Linux, building python should not be dif
 - [ ] Support AQN replay editor.
 - [ ] Identify in-game beatmap edit.
 - [ ] Custom text.
+- [ ] Disable display server.
 - [ ] Python GUI(?)
