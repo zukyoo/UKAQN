@@ -50,7 +50,7 @@ I don't use Linux. If you are all using Linux, building python should not be dif
 
 # WIP
 - [ ] Support AQN replay editor.
-- [ ] Identify in-game beatmap edit.
+- [x] Identify in-game beatmap edit.
 - [ ] Custom text.
 - [ ] Disable display server.
 - [ ] Python GUI(?)
