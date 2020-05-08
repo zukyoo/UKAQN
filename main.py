@@ -11,7 +11,7 @@ gameOpend = False
 state = any
 active = any
 
-version = "1.0.0"
+version = "1.0.1"
 
 r = requests.get('https://api.github.com/repos/Kotoki1337/AquilaRP/releases/latest')
 latest = r.json()["tag_name"]
@@ -66,8 +66,10 @@ def check_server():
             server = "kawata"
         elif "51.15.26.118" in str(datas):
             server = "ripple"
-        elif "47.89.44.19" in str(datas):
-            server = "ppy.sb"
+        elif "194.34.133.95" in str(datas):
+            server = "ainu"
+        # elif "47.89.44.19" in str(datas):
+        #     server = "ppy.sb"
         else:
             server = "unknown"
     else:
