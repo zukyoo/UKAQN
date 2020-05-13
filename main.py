@@ -11,7 +11,7 @@ gameOpend = False
 state = any
 active = any
 
-version = "1.0.3"
+version = "1.0.4"
 
 r = requests.get('https://api.github.com/repos/zukyoo/UKAQN/releases/latest')
 latest = r.json()["tag_name"]
@@ -91,17 +91,15 @@ def check_server():
     else:
         server = "bancho"
         serverl = "Bancho"
-    return server
-    return serverl
+    return server, serverl
 
 def setActive():
     state, active = getActive()
     server = check_server()
-    serverl = check_server()
     if state == "AFK" or state == "Idle":
-        RPC.update(details = state, large_image= "aqn", large_text="UK!AQN Client", small_image = server, small_text = f"Playing on {serverl}")
+        RPC.update(details = state, large_image= "aqn", large_text="UK!AQN Client", small_image = server[0], small_text = f"Playing on {server[1]}")
     else:
-        RPC.update(details = state, state = active, large_image="aqn", large_text="UK!AQN Client", small_image = server, small_text = f"Playing on {serverl}")
+        RPC.update(details = state, state = active, large_image="aqn", large_text="UK!AQN Client", small_image = server[0], small_text = f"Playing on {server[1]}")
 
 def check_exsit(process_name):
     global osu_close
