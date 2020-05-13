@@ -1,36 +1,22 @@
-# AquilaRP
+# UK!AQN
 
-> A python script that provides a Discord Rich Presence description for osu! but it's AQN.
+> A python script that provides a Discord Rich Presence for osu!, except its UK!AQN :sunglasses:
 
 [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence) [![license](https://img.shields.io/github/license/qwertyquerty/pypresence.svg?style=for-the-badge)](https://github.com/qwertyquerty/pypresence/blob/master/LICENSE)
 
-# Hows it Work
+## What does it do/show?
 
-Get the current game activity through the process title of `osu!.exe`.
-
-![](https://i.imgur.com/UiOtyuB.png)
-
-It gets the process title every three seconds, but the occupancy rate in the background is low enough to be ignored.
-
-# Stuff is good, but why
-
-![](https://i.imgur.com/MVRbjl8.png)
-
-Some people want to show their Rich-Presence but dont want to get a report for it. But at the same time, they really want to show the fact that **I am AQN user**. AquilaRP is for them.
-
-## What will it display
-
-AquilaRP will not display any ign, only show the server you are currently on. And the beatmap you are currently playing or editing, and which player is spectating by you.
+UK!AQN will not display any ign, it will only show the server you are currently on and the beatmap you are currently playing/editing.
 
 # How to use
 
-- Download compiled file in [Release](https://github.com/Kotoki1337/AquilaRP/releases).
-- Put it where you cant forget (I dont care you putting **AquliaRP** next to **AQN** LOL).
-- Open it and forget it.
+- Download the latest version from [Releases](https://github.com/zukyoo/UKAQN/releases).
+- Put the exe anywhere accessable.
+- Run it and you're done!
 
 ## Building from Source
 
-Don't want to use my client id? Build AquilaRP from source fairly easily.
+Want to make your own edits/use your own Client ID? Simple:
 
 Prerequisites:
 - [Python 3.8.2](https://www.python.org/)
@@ -40,17 +26,6 @@ Prerequisites:
 
 **Windows**
 
-1. Any `clone` method you want to use
-2. Make you own big brain code here.
-3. Open `cmd` and run `pyinstaller -F main.py` in cmd folder.
-
-**Linux**
-
-I don't use Linux. If you are all using Linux, building python should not be difficult for you
-
-# WIP
-- [ ] Support AQN replay editor.
-- [x] Identify in-game beatmap edit.
-- [ ] Custom text.
-- [ ] Disable display server.
-- [ ] Python GUI(?)
+1. Clone/download this github repo.
+2. Make any changes to main.py
+3. Open `cmd` and run `pyinstaller -F main.py` in the folder you are editing in.
