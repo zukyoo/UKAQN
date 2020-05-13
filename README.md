@@ -13,6 +13,7 @@ UK!AQN will not display any ign, it will only show the server you are currently 
 - Download the latest version from [Releases](https://github.com/zukyoo/UKAQN/releases).
 - Put the exe anywhere accessable.
 - Run it and you're done!
+- (Recommended) Disable Discord Rich Presence setting in osu! as it may overlap UK!AQN's Rich Presence.
 
 ## Building from Source
 
