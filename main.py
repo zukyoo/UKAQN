@@ -11,7 +11,7 @@ gameOpend = False
 state = any
 active = any
 
-version = "1.0.4"
+version = "1.0.5"
 
 r = requests.get('https://api.github.com/repos/zukyoo/UKAQN/releases/latest')
 latest = r.json()["tag_name"]
@@ -32,23 +32,23 @@ def read_hosts():
 def getActive():
     global state
     global active
-    tittle = gw.getActiveWindowTitle()
+    title = gw.getActiveWindowTitle()
     keyword = "osu!"
     keyword_full = "osu!  - "
-    if keyword in str(tittle):
-        if keyword_full in str(tittle):
-            if ".osu" in str(tittle):
-                state = tittle.replace("osu!  - ", "").replace(".osu", "")
+    if keyword in str(title):
+        if keyword_full in str(title):
+            if ".osu" in str(title):
+                state = title.replace("osu!  - ", "").replace(".osu", "")
                 active = "Editing beatmap"
             else:
-                state = tittle.replace("osu!  - ", "")
+                state = title.replace("osu!  - ", "")
                 active = "Playing"
         else:
             state = "Idle"
         if state == "osu!":
             state = "Idle"
         elif "watching" in state:
-            specname = tittle.replace("osu!  -  (watching ", "").replace(")", "")
+            specname = title.replace("osu!  -  (watching ", "").replace(")", "")
             state = f"Spectating {specname}"
             active = "Spectating"
     else:
