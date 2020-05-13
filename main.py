@@ -11,16 +11,16 @@ gameOpend = False
 state = any
 active = any
 
-version = "1.0.1"
+version = "1.0.3"
 
-r = requests.get('https://api.github.com/repos/Kotoki1337/AquilaRP/releases/latest')
+r = requests.get('https://api.github.com/repos/zukyoo/UKAQN/releases/latest')
 latest = r.json()["tag_name"]
 
 path = 'C:\Windows\System32\drivers\etc'
 os.chdir(path)
 file = 'hosts'
 
-client_id = "707510270771068945"
+client_id = "709493460494975068"
 RPC = Presence(client_id)
 RPC.connect()
 
@@ -39,10 +39,10 @@ def getActive():
         if keyword_full in str(tittle):
             if ".osu" in str(tittle):
                 state = tittle.replace("osu!  - ", "").replace(".osu", "")
-                active = "Resolving beatmap"
+                active = "Editing beatmap"
             else:
                 state = tittle.replace("osu!  - ", "")
-                active = "Getting good"
+                active = "Playing"
         else:
             state = "Idle"
         if state == "osu!":
@@ -50,7 +50,7 @@ def getActive():
         elif "watching" in state:
             specname = tittle.replace("osu!  -  (watching ", "").replace(")", "")
             state = f"Spectating {specname}"
-            active = "Get good"
+            active = "Spectating"
     else:
         state = "AFK"
     return state, active
@@ -60,29 +60,48 @@ def check_server():
     if "ppy.sh" in str(datas):
         if "163.172.255.98" in str(datas):
             server = "gatari"
-        elif "159.65.235.81" in str(datas):
+            serverl = "Gatari"
+        elif "64.225.106.19" in str(datas):
             server = "akatsuki"
+            serverl = "Akatsuki"
         elif "88.198.32.213" in str(datas):
             server = "kawata"
+            serverl = "Kawata"
         elif "51.15.26.118" in str(datas):
             server = "ripple"
+            serverl = "Ripple"
+        elif "3.136.108.8" in str(datas):
+            server = "the_realm"
+            serverl = "The Realm"
+        elif "35.178.22.234" in str(datas):
+            server = "ryumi"
+            serverl = "Ryumi"
+        elif "95.179.225.194" in str(datas):
+            server = "realistik"
+            serverl = "Realistik"
         elif "194.34.133.95" in str(datas):
             server = "ainu"
-        # elif "47.89.44.19" in str(datas):
-        #     server = "ppy.sb"
+            serverl = "Ainu"
+        elif "148.251.234.42" in str(datas):
+            server = "enjuu"
+            serverl = "Enjuu"
         else:
             server = "unknown"
+            serverl = "an unknown server"
     else:
         server = "bancho"
+        serverl = "Bancho"
     return server
+    return serverl
 
 def setActive():
     state, active = getActive()
     server = check_server()
+    serverl = check_server()
     if state == "AFK" or state == "Idle":
-        RPC.update(details = state, large_image= "aqn", large_text="TheAquila Client", small_image = server, small_text = f"Playing on {server} server")
+        RPC.update(details = state, large_image= "aqn", large_text="UK!AQN Client", small_image = server, small_text = f"Playing on {serverl}")
     else:
-        RPC.update(details = state, state = active, large_image="aqn", large_text="TheAquila Cilent", small_image = server, small_text = f"Playing on {server} server")
+        RPC.update(details = state, state = active, large_image="aqn", large_text="UK!AQN Client", small_image = server, small_text = f"Playing on {serverl}")
 
 def check_exsit(process_name):
     global osu_close
@@ -93,29 +112,29 @@ def check_exsit(process_name):
         osu_run = True
         setActive()
         if osu_run == True and osu_close == True and gameOpend != True:
-            print("osu!.exe has been detected")
+            print("osu! is running, UK!AQN started.")
             osu_close = False
             gameOpend = True
     else:
         osu_run = False
         RPC.clear()
         if osu_run != True and osu_close != True and gameOpend == True:
-            print("osu!.exe closed")
+            print("osu! has been closed. If you want UK!AQN to continue working, please start it up again!")
             osu_close = True
             gameOpend = False
         elif osu_run != True and osu_close != True and gameOpend != True:
-            print("osu!.exe cannot be detect")
+            print("osu! is not running. Please start osu!")
             osu_close = True
             gameOpend = False
 
     return osu_run
 
-print(f"Version: {version}\nhttps://github.com/Kotoki1337/AquilaRP")
+print(F"Version: {version}\nhttps://github.com/zukyoo/UKAQN")
 if latest != version:
-    print("There is a new release on Github!")
+    print("There is a new update. Please go to the GitHub repo and download the newest version!")
 else:
-    print(f"The {version} is the latest release in Github!")
-
+    print("")
+	
 while True:
     check_exsit("osu!.exe")
     time.sleep(3)
