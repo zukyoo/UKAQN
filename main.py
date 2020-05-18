@@ -11,7 +11,7 @@ gameOpend = False
 state = any
 active = any
 
-version = "1.0.5"
+version = "1.0.6"
 
 r = requests.get('https://api.github.com/repos/zukyoo/UKAQN/releases/latest')
 latest = r.json()["tag_name"]
@@ -85,6 +85,9 @@ def check_server():
         elif "148.251.234.42" in str(datas):
             server = "enjuu"
             serverl = "Enjuu"
+        elif "5.83.161.92" in str(datas):
+            server = "misumi"
+            serverl = "Misumi"			
         else:
             server = "unknown"
             serverl = "an unknown server"
